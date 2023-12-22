@@ -29,9 +29,6 @@ const Signup = () => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(async (res) => {
         const user = res.user;
-        await firebase.auth().updateProfile(user, {
-          displayName: email.substring(0, 5),
-        })
         console.log(res);
         router.push('/searchpage')
       }).catch((error) => {
